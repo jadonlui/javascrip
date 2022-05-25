@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <pre class="rect"></pre>
+
+        <script>
+            const rect = document.querySelector(".rect");
+            const ar = [2, 7, 34, 17, 19, 23, 84];
+
+            const f3 = function (a = 5, b = 10) {
+                return a * b;
+            };
+
+            const f4 = function (a) {
+                a = a || 8; // ES5 預設值
+                return a * a;
+            };
+            console.log(f3(7));
+            console.log(f3(7, 5));
+            console.log(f3());
+            console.log(f4(7));
+            console.log(f4());
+        </script>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: rgb(248, 232, 232);
+            border: 1px solid black;
+        }
+
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgb(245, 52, 52);
+            color: white;
+            font-weight: 800;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect">
+        <div class="ball" style="left: 0px">7</div>
+    </div>
+    <script>
+        const rect = document.querySelector(".rect");
+        const ball = document.querySelector(".ball");
+
+        const doRun = () => {
+            let a = 0;
+            a = Math.floor(Math.random() * 5);
+            // console.log(a);
+            let left1 =
+                parseInt(ball.style.left) + 1 +
+                a;
+            let left = left1 + 'px';
+            ball.style.left = left;
+            // console.log(left);
+            if (left1 >= 800) {
+
+            } else {
+                setTimeout(doRun, 30);
+            }
+        };
+
+        doRun();
+    </script>
+</body>
+
+</html>

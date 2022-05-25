@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <pre class="rect"></pre>
+
+        <script>
+            const rect = document.querySelector(".rect");
+
+            let a = 10,
+                b = 20;
+
+            function swap(a, b) {
+                rect.innerHTML += `** a=${a}, b=${b}\n`;
+                let t = a;
+                a = b;
+                b = t;
+            }
+            swap(a, b);
+
+            rect.innerHTML += `a=${a}, b=${b}\n`;
+            // ------------------
+            const ar = [2, 7, 34, 17, 19, 23, 84,7788];
+            function handleAr(ar) {
+                let br=[...ar];
+                br.pop();
+                return br;
+            }
+            const br=handleAr(ar);
+            rect.innerHTML += JSON.stringify(ar) + "\n";
+            rect.innerHTML += JSON.stringify(br) + "\n";
+        </script>
+    </body>
+</html>

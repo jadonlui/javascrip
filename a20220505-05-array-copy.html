@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <pre class="rect"></pre>
+        <p>123</p>
+        <p>456</p>
+        <p>789</p>
+        <script>
+            const rect = document.querySelector(".rect");
+            const p = document.querySelectorAll("p"); // NodeList
+            const ar = [55, "aa", true, 77, 123];
+
+            const ar2 = [...ar]; // ***單層 copy
+            const ar3 = ar.concat(); // 單層 copy
+            const ar4 = ar.slice(); // 單層 copy
+            const ar5 = [...p]; // 可迭代的類型可以用 spread operator
+
+            rect.innerHTML = JSON.stringify(ar, null, 4);
+            console.log(ar5);
+        </script>
+    </body>
+</html>

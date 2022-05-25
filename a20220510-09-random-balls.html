@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .rect {
+                position: relative;
+                width: 800px;
+                height: 600px;
+                background-color: rgb(248, 232, 232);
+                border: 1px solid black;
+            }
+            .ball {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: rgb(245, 52, 52);
+                text-align: center;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="rect"></div>
+        <script>
+            const rect = document.querySelector(".rect");
+            let b;
+            function randomColor() {
+                let rnd = Math.floor(Math.random() * 16777216);
+                let c = "00000" + rnd.toString(16);
+                return "#" + c.slice(c.length - 6);
+            }
+
+            for (let i = 0; i < 1000; i++) {
+                b = document.createElement("div");
+                b.className = "ball";
+                const size = 10 + Math.floor(Math.random() * 21);
+                const x = Math.floor(Math.random() * 800);
+                const y = Math.floor(Math.random() * 600);
+
+                b.style.backgroundColor = randomColor();
+                b.style.left = x + "px";
+                b.style.top = y + "px";
+                b.style.height = b.style.width = size + "px";
+
+                rect.appendChild(b);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <pre class="rect"></pre>
+
+        <script>
+            const rect = document.querySelector(".rect");
+
+            const f1 = function (a) {
+                console.log(this);
+                this.data.unshift(a);
+            };
+
+            const obj = {
+                data: [],
+                f1,
+                f2: function (a) {
+                    this.data.push(a);
+                },
+                toString() {
+                    return JSON.stringify(this.data);
+                },
+            };
+        </script>
+    </body>
+</html>

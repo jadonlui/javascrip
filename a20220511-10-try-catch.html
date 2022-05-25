@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .rect {
+                position: relative;
+                width: 800px;
+                height: 600px;
+                background-color: rgb(248, 232, 232);
+                border: 1px solid black;
+            }
+            .ball {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: rgb(245, 216, 52);
+                border: 1px solid black;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="doRun()">show</button>
+
+        <script>
+            const str = `{"name":"bill","age":20}+`;
+            // let a=123;
+            function doRun() {
+                let obj = {};
+                try {
+                    obj = JSON.parse(str);
+                    console.log(1);
+                } catch (ex) {
+                    console.log(ex.message);
+                    console.log(ex.stack);
+                }
+                finally{
+                    console.log("456");
+                }
+                console.log(obj);//如果上面錯硬要顯示會是空obj
+            }
+
+           
+        </script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .rect {
+                position: relative;
+                width: 800px;
+                height: 600px;
+                background-color: rgb(248, 232, 232);
+                border: 1px solid black;
+            }
+            .ball {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: rgb(245, 216, 52);
+                border: 1px solid black;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="rect"></div>
+        <div id="info"></div>
+        <script>
+            const rect = document.querySelector(".rect");
+
+            const info = document.querySelector("#info");
+
+            function randomColor() {
+                let rnd = Math.floor(Math.random() * 16777216);
+                let c = "00000" + rnd.toString(16);
+                return "#" + c.slice(c.length - 6);
+            }
+
+            // { offsetX, offsetY }=event
+            const randomBall = ({ offsetX, offsetY }) => {
+                const b = document.createElement("div");
+                b.className = "ball";
+                const size = 10 + Math.floor(Math.random() * 21);
+                const x = offsetX - size / 2;
+                const y = offsetY - size / 2;
+                const bgc = randomColor();
+
+                b.style.backgroundColor = bgc;
+                b.style.left = x + "px";
+                b.style.top = y + "px";
+                b.style.height = b.style.width = size + "px";
+                return b;
+            };
+
+            const mDown = () => {
+                rect.addEventListener("mousemove", mMove);
+           
+            };
+            const mUp = () => {
+                rect.removeEventListener("mousemove", mMove);
+            };
+            const mMove = (event) => {
+                rect.appendChild(randomBall(event));
+            };
+
+            rect.addEventListener("mousedown", mDown);
+            window.addEventListener("mouseup", mUp);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .rect {
+                position: relative;
+                width: 800px;
+                height: 600px;
+                background-color: rgb(248, 232, 232);
+                border: 1px solid black;
+            }
+
+            .ball {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: rgb(245, 216, 52);
+                border: 1px solid black;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <pre class="rect"></pre>
+        <button onclick="loadData()">load data</button>
+
+        <script>
+            const rect = document.querySelector(".rect");
+            let bIndex = 0;
+            let data = [];
+            let hashdata = [];
+
+            // const drawBall = ({ size, x, y, bgc }) => {
+            //     const b = document.createElement("div");
+            //     b.className = "ball";
+
+            //     b.style.backgroundColor = bgc;
+            //     b.style.left = x + "px";
+            //     b.style.top = y + "px";
+            //     b.style.height = b.style.width = size + "px";
+
+            //     rect.appendChild(b);
+            // };
+
+            // const doStep = () => {
+            //     if (bIndex >= data.length) return;
+            //     const b = data[bIndex];
+            //     drawBall(b);
+            //     bIndex++;
+            //     setTimeout(doStep, 10);
+            // };
+            const showshow = () => {
+                hashdata.forEach((v, i) => {
+                    if (v.parent_sid == 0) {
+                        // console.log(v.sid);
+                        // console.log("1");
+                        rect.innerHTML += "\n"+"\n";
+                        rect.innerHTML += v.sid + v.name + "\n";
+                        // console.log(v.sid+v.name);
+                    } else {
+                        // console.log(v.sid);
+                        rect.innerHTML += v.sid + "." + v.name + " ";
+                        // console.log("2");
+                    }
+                });
+            };
+
+            const gogo = () => {
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].parent_sid == 0) {
+                        hashdata.push(data[i]);
+                        for (j = 0; j < data.length; j++) {
+                            if (data[j].parent_sid === data[i].sid) {
+                                hashdata.push(data[j]);
+                            }
+                        }
+                    }
+                }
+            };
+            const loadData = () => {
+                const xhr = new XMLHttpRequest();
+
+                xhr.onload = function () {
+                    console.log(xhr.responseText);
+                    data = JSON.parse(xhr.responseText);
+
+                    gogo();
+                    console.log("2:",hashdata);
+                    showshow();
+                };
+                xhr.open("GET", "data/jshw.json");
+                xhr.send();
+
+                // console.log(data[0].parent_sid);
+            };
+        </script>
+    </body>
+</html>

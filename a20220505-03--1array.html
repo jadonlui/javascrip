@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <pre class="rect"></pre>
+        <p>123</p>
+        <p>456</p>
+        <p>789</p>
+        <script>
+            const rect = document.querySelector(".rect");
+            const p = document.querySelectorAll("p");
+            const ar = [55, "aa", true, 77, 123];
+            ar[10] = 100; // 不要跳著索引設定
+            for (let i = 0; i < ar.length; i++) {
+                console.log(`${i}: ${ar[i]}`);
+            }
+            console.log(`-------------------------`);
+            for (let s in ar) {
+                console.log(`${s}: ${ar[s]}`);
+            }
+            console.log(`-------------------------`);
+            for (let i of ar) {
+                console.log(i);
+            }
+            console.log(`-------------------------`);
+            // NodeList, 可迭代的類型, 所以用 for/of
+            for (let i of p) {
+                console.log(i, i.innerText);
+            }
+        </script>
+    </body>
+</html>

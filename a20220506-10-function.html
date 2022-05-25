@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <pre class="rect"></pre>
+
+        <script>
+            const rect = document.querySelector(".rect");
+            const ar = [2, 7, 34, 17, 19, 23, 84];
+
+            function f1(n) {
+                console.log(arguments);
+                return n * n;
+            }
+
+            const f2 = function (n) {
+                return n * n;
+            };
+
+            console.log(f2(5));
+            console.log(f1(6));
+            console.log(f1());
+            console.log(f1(7, 8, 9));
+
+            // rest operator, 其餘
+            const f3 = function (...a) {
+                console.log(a);
+            };
+            const f4 = function (a, ...b) {
+                console.log({ a, b });
+            };
+
+            console.log(f3(7, 8, 9));
+            console.log(f4(7, 8, 9));
+            console.log(f4(7, 8));
+        </script>
+    </body>
+</html>

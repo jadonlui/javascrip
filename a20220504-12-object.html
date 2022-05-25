@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="rect"></div>
+        <script>
+            const rect = document.querySelector(".rect");
+            const obj = {};
+            const p1 = {
+                age: 25,
+                name: "David",
+            };
+            const p2 = {
+                age: 22,
+                name: "John",
+                num: 100,
+            };
+
+            obj[p1] = 100;
+            obj[p2] = 200;
+
+            console.log(obj[p1]); // 200
+
+            const p3 = p1; // 設定參照
+            p1.name = "Flora";
+            console.log(p3);
+        </script>
+    </body>
+</html>

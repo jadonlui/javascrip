@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .rect {
+                position: relative;
+                width: 800px;
+                height: 600px;
+                background-color: rgb(248, 232, 232);
+                border: 1px solid black;
+            }
+            .ball {
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background-color: rgb(245, 216, 52);
+                text-align: center;
+                border: 1px solid black;
+                left: 100px;
+                top: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="rect">
+            <div class="ball"></div>
+        </div>
+        <script>
+            const rect = document.querySelector(".rect");
+            const ball = document.querySelector(".ball");
+
+            const handler = (event) => {
+                console.log("target:", event.target);
+                console.log("currentTarget:", event.currentTarget);
+                console.log(event.eventPhase);
+            };
+            ball.addEventListener("click", handler);
+            rect.addEventListener("click", handler);
+            document.addEventListener("click", handler);
+            window.addEventListener("click", handler);
+        </script>
+    </body>
+</html>

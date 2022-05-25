@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p id="info"></p>
+
+        <script>
+            const pEl = document.querySelector("#info");
+
+            let str =
+                "今天在大聯盟場上太空人以3：2險勝遊騎兵今天在大聯盟場上太空人以3：2險勝遊騎兵";
+            pEl.innerText = pEl.innerText + str.slice(4, 8) + "\n";
+
+            pEl.innerText += str[8] + "\n";
+            pEl.innerText += str[4] + "\n";
+            pEl.innerText += str.split("大聯盟").join("") + "\n";
+            pEl.innerText += str.split("").join("超級盃") + "\n";
+            pEl.innerText += str.split("").reverse().join("") + "\n";
+        </script>
+    </body>
+</html>

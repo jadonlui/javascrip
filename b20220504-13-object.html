@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="rect"></div>
+        <script>
+            const rect = document.querySelector(".rect");
+            //const obj = {};
+            const str = "gender";
+            const p1 = {
+                age: 25,
+                name: {
+                    first: "John",
+                    last: "Wick",
+                },
+                [str]: "male", // 變數值為 key
+            };
+
+            // 淺層複製, 單層複製
+             const p2 = { ...p1 }; // 展開運算子 spread operator展開運算子
+            
+             // const p2 =p1;傳址
+
+
+            p1.gender = "female";
+            p1.name.first = "David";
+            //因只複製單層，所以連同name的地址複製過來指到同一個地方
+            console.log(p2);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <pre class="rect"></pre>
+        <script>
+            const rect = document.querySelector(".rect");
+            const ar = [55, "aa", true, 77, 123];
+            ar[10] = 100;
+            for (let i = 0; i < ar.length; i++) {
+                // console.log(`${i}: ${ar[i]}`);
+                console.log(i+`: ${ar[i]}`);
+            }
+            console.log(`-------------------------`);
+
+            // for (let s in ar) {
+            //     // 是抓key
+            //    //${s}抓key的位置是第幾個
+            //         console.log(`${s}: ${ar[s]}`);
+                
+               
+            //  }
+            for (let s in ar) {
+                if(ar[s]=="undefined")
+                {
+                    console.log('0');//for in是直接跳過去so根本不會進來
+                }else{
+                    console.log(`${s}: ${ar[s]}`);
+                }
+              
+            }
+        </script>
+    </body>
+</html>

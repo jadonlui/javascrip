@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <select name="" id="mysort" onchange="whenChanged()">
+            <option value="">-- 請選擇 --</option>
+            <option value="ageAsc">年齡小到大</option>
+            <option value="ageDesc">年齡大到小</option>
+            <option value="nameAsc">名字小到大</option>
+            <option value="nameDesc">名字大到小</option>
+        </select>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>name</td>
+                    <td>age</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <script>
+            const rect = document.querySelector(".rect");
+            const ar = [
+                { name: "David", age: 25 },
+                { name: "Carl", age: 28 },
+                { name: "Bill", age: 21 },
+            ];
+            // 依年齡排序
+            function ageAsc(a, b) {
+                return a.age - b.age;
+            }
+            function ageDesc(a, b) {
+                return b.age - a.age;
+            }
+            // 依名字排序
+            function nameAsc(a, b) {
+                return a.name < b.name ? -1 : 1;
+            }
+            function nameDesc(a, b) {
+                return a.name > b.name ? -1 : 1;
+            }
+
+            function whenChanged() {
+                const mysort = document.querySelector("#mysort");
+                console.log(mysort.value);
+                ar.sort(ageAsc);
+                //rect.innerHTML = JSON.stringify(ar, null, 4);
+                render();
+            }
+
+            function render() {
+                const tbody = document.querySelector("tbody");
+                const ar2 = ar.map(function (v) {
+                    return `
+                    <tr>
+                        <td>${v.name}</td>
+                        <td>${v.age}</td>
+                    </tr>`;
+                });
+
+                tbody.innerHTML = ar2.join("");
+            }
+            render(); // 產生內容
+        </script>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .clock {
+                position: relative;
+                width: 600px;
+                height: 600px;
+                border-radius: 50%;
+                background-color: rgb(248, 232, 232);
+                border: 1px solid black;
+            }
+            .hand {
+                position: absolute;
+                left: 300px;
+                top: 300px;
+            }
+            .hand-sec {
+                position: absolute;
+                width: 2px;
+                height: 300px;
+                left: -1px;
+                top: -300px;
+                background-color: rgb(245, 52, 52);
+            }
+            .hand-min {
+                position: absolute;
+                width: 12px;
+                height: 220px;
+                border-radius: 6px;
+                left: -6px;
+                top: -214px;
+                background-color: rgb(52, 58, 245);
+            }
+            .hand-hr {
+                position: absolute;
+                width: 22px;
+                height: 160px;
+                border-radius: 11px;
+                left: -11px;
+                top: -149px;
+                background-color: rgb(36, 176, 55);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="clock">
+            <div class="hand">
+                <div class="hand-hr"></div>
+            </div>
+            <div class="hand">
+                <div class="hand-min"></div>
+            </div>
+            <div class="hand">
+                <div class="hand-sec"></div>
+            </div>
+        </div>
+        <script>
+            const hands = document.querySelectorAll(".clock>.hand");
+            const hr_hand = hands[0];
+            const min_hand = hands[1];
+            const sec_hand = hands[2];
+            //sec_hand.style.transform = "rotate(30deg)";
+
+            const runClock = () => {
+                const now = new Date();
+                const ms = now.getMilliseconds();
+                const s = now.getSeconds();
+                const m = now.getMinutes();
+                const h = now.getHours();
+
+                sec_hand.style.transform = `rotate(${s * 6 + 0.006 * ms}deg)`;
+                min_hand.style.transform = `rotate(${m * 6}deg)`;
+                hr_hand.style.transform = `rotate(${h * 30 + 0.5 * m}deg)`;
+
+                setTimeout(runClock, 30);
+            };
+            runClock();
+        </script>
+    </body>
+</html>

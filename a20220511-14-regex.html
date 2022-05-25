@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form name="form1" onsubmit="checkForm();return false;">
+            <input type="text" name="mobile" placeholder="手機" />
+
+            <input type="submit" />
+        </form>
+        <script>
+            const pattern = /^09\d{2}-?\d{3}-?\d{3}$/;
+            function checkForm() {
+                const m = document.form1.mobile.value;
+                if (pattern.test(m)) {
+                    alert("OK");
+                } else {
+                    alert("格式不符");
+                }
+            }
+        </script>
+    </body>
+</html>

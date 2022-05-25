@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="rect"></div>
+        <script>
+            const rect = document.querySelector(".rect");
+
+            const now = new Date();
+
+            const deadline3 = new Date(2022, 7, 24, 18, 0, 0);
+
+            let diff = deadline3 - now;
+            const SEC_PER_DAY = 24 * 60 * 60000;
+            const days = parseInt(diff / SEC_PER_DAY);
+            const hours = parseInt((diff % SEC_PER_DAY) / 3600000);
+            const mins = parseInt((diff % 3600000) / 60000);
+
+            rect.innerHTML = `<h2>離結訓還有 ${days} 天<br>
+                ${hours} 小時<br>
+                ${mins} 分鐘<br>
+                </h2>
+            
+            `;
+        </script>
+    </body>
+</html>

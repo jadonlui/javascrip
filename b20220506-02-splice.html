@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <pre class="rect"></pre>
+
+    <script>
+        const rect = document.querySelector(".rect");
+        const ar = "abcdefghi".split("");
+
+        let br = [...ar];//淺層zj454
+
+        rect.innerHTML += JSON.stringify(br.splice(2, 3)) + "\n"; // 刪除
+        rect.innerHTML += JSON.stringify(br) + "\n";
+
+        br = [...ar];
+        rect.innerHTML +=
+            JSON.stringify(br.splice(2, 0, "bill", "peter")) + "\n"; // 插入元素
+        rect.innerHTML += JSON.stringify(br) + "\n";
+
+        br = [...ar];
+        rect.innerHTML +=
+            JSON.stringify(br.splice(2, 2, "bill", "peter")) + "\n"; // 取代
+        rect.innerHTML += JSON.stringify(br) + "\n";
+    </script>
+</body>
+
+</html>

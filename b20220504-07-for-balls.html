@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .rect {
+                position: relative;
+                width: 800px;
+                height: 600px;
+                background-color: rgb(248, 232, 232);
+                border: 1px solid black;
+            }
+            .ball {
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: rgb(245, 52, 52);
+                color: white;
+                font-weight: 800;
+                line-height: 50px;
+                text-align: center;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="rect">
+            <!--
+            <div class="ball">7</div>
+
+            -->
+        </div>
+        <script>
+            //要先用一個東西去接物件，而被接的物件是class=".rect"
+            const qwe = document.querySelector(".rect");
+            // const qwe = document.querySelector("body");
+
+            //b一樣是要用來接物件
+            let b=''; //或是直接在for迴圈中用const 宣告b
+
+        //     for (let i = 0; i < 10; i++) {
+        //         b = document.createElement("nav"); //要放在tagname標籤名稱為div中
+        //         //要生成在這個標籤中
+
+
+        //         b.className = "ball";
+               
+        //         console.log(i);
+        //         b.innerHTML = i+1;
+        //         console.log(i);
+               
+        //         b.style.left = 60 * i + "px";
+        //         console.log(i);
+        //         b.style.top = "50px";
+
+        //         qwe.appendChild(b);
+        // //新增子元素
+        //     }
+       
+        for(let i = 0; i < 10; i++){
+            b=b+`<div class="ball" style="left: ${60*i}px; top: 50px;">${i+1}</div>`
+
+        }
+        qwe.innerHTML=b;
+        </script>
+        
+    </body>
+</html>

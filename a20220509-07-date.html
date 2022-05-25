@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="rect"></div>
+    <script>
+        const rect = document.querySelector(".rect");
+
+        const now = new Date();
+        // console.log(now);
+        const ss = now.getSeconds();
+        // console.log(ss);
+
+        const deadline1 = new Date("2022-08-24");
+        const deadline2 = new Date(2022, 7, 24);
+        const deadline3 = new Date(2022, 7, 24, 10, 0, 0);
+
+
+        let diff = deadline1 - now;
+        // console.log(diff);
+        const days = parseInt(diff / (24 * 60 * 60000));//60000毫秒
+        const ccc = parseInt(diff % (24 * 60 * 60000));
+
+
+        // const nowcount = new Date();
+        // let ddd=deadline1-nowcount;
+        // console.log(ddd);
+        const clockmin = () => {
+            const nowcount = new Date();
+            
+        };
+        clockmin();
+
+        rect.innerHTML = `<h2>離結訓還有 ${days} 天 </h2>`;
+       
+
+
+    </script>
+</body>
+
+</html>

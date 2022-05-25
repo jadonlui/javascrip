@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="rect"></div>
+   
+    <button onclick="myStop()">stop</button>
+    <script>
+        const rect = document.querySelector(".rect");
+
+        // 丟出錯誤
+        // throw new Error("my error");
+
+        console.log("Hello");
+
+        // // 少用 setInterval
+        const interval_id = setInterval(function () {
+            throw new Error("my error");
+        }, 2000);
+       
+        function myStop() {
+            clearInterval(interval_id);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <pre class="rect"></pre>
+
+        <script>
+            const rect = document.querySelector(".rect");
+
+            const f1 = function (a) {
+                console.log(this);
+                this.data.unshift(a);
+            };
+
+            const obj = {
+                data: [],
+                f1,
+                f2: function (a) {
+                    this.data.push(a);
+                },
+                toString() {
+                    return JSON.stringify(this.data);
+                },
+            };
+
+            const f3 = f1.bind(obj);
+
+            obj.f2(5);
+            obj.f1(20);
+            console.log(obj.toString());
+
+            // f1(3); // 直接呼叫會出錯
+            f1.call(obj, 9);
+            console.log(obj + "");
+            f1.apply(obj, [8]);
+            console.log(obj + "");
+            f3(10);
+            console.log(obj + "");
+        </script>
+    </body>
+</html>

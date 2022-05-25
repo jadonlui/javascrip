@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="rect"></div>
+    <script>
+        const rect = document.querySelector(".rect");
+
+
+
+
+
+
+        const runClock = () => {
+
+            const now = new Date();
+            const deadline1 = new Date("2022-08-24");
+            let diff = deadline1 - now;
+            const days = parseInt(diff / (24 * 60 * 60000));//60000毫秒
+            const hourminsec = diff % (24 * 60 * 60000);
+            let temphourminsec = hourminsec;
+
+            const h=parseInt(temphourminsec/(60*60000)-8);
+            const m=parseInt(((temphourminsec%(60*60000))/(60000)));
+            const s=parseInt(temphourminsec%(60000)/1000);
+            rect.innerHTML = `<h2>離結訓還有 ${days} 天 ${h}小時 ${m}分 ${s}秒 </h2>`;
+
+            //  console.log(temphourminsec/(60*60000));
+            //  console.log(temphourminsec%(60000));
+            setTimeout(runClock, 1000);
+        };
+        runClock();
+
+    </script>
+</body>
+
+</html>

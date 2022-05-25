@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <pre class="rect"></pre>
+
+    <script>
+        const rect = document.querySelector(".rect");
+        const ar =  [
+            { name: "David", age: 25 },
+            { name: "Carl", age: 28 },
+            { name: "Bill", age: 21 },
+        ];
+        const t = ar.reduce(function (a, v, i) {
+            rect.innerHTML += `${a}, ${v}, ${i}\n`;
+            return a + v;
+        });
+        console.log(t);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .clock {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background-color: rgb(248, 232, 232);
+        }
+
+        .clock1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+        }
+
+        .clock2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+        }
+
+        .hand {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+
+        .hand-sec {
+            position: absolute;
+            width: 2px;
+            height: 300px;
+            left: -1px;
+            top: -300px;
+            background-color: rgb(245, 52, 52);
+        }
+
+        .hand1 {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+
+        .hand-sec1 {
+            position: absolute;
+            width: 2px;
+            border-radius: 30%;
+            height: 250px;
+            left: -1px;
+            top: -250px;
+            background-color: rgb(93, 18, 244);
+            transform: translateX(-50%);
+        }
+
+        .hand2 {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+
+        .hand-sec2 {
+            position: absolute;
+            width: 4px;
+            height: 200px;
+            left: -1px;
+            top: -200px;
+            background-color: rgb(9, 237, 47);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="hand">
+            <div class="hand-sec"></div>
+        </div>
+    </div>
+    <div class="clock1">
+        <div class="hand1">
+            <div class="hand-sec1"></div>
+        </div>
+    </div>
+    <div class="clock2">
+        <div class="hand2">
+            <div class="hand-sec2"></div>
+        </div>
+    </div>
+    <script>
+        const sec_hand = document.querySelector(".clock>.hand");
+        const t_hand = document.querySelector(".clock1>.hand1");
+        const m_hand = document.querySelector(".clock2>.hand2");
+
+        const runClockss = () => {
+            const now = new Date();
+            const ms = now.getMilliseconds();
+            sec_hand.style.transform = `rotate(${now.getSeconds() * 6 + 0.006 * ms}deg)`;
+
+            setTimeout(runClockss, 30);
+        };
+        runClockss();
+
+        const runclockm = () => {
+            const now1 = new Date();
+            t_hand.style.transform = `rotate(${now1.getMinutes() * 6 + (now1.getSeconds() * 6) / 60
+                }deg)`;
+
+            setTimeout(runclockm, 1000);
+
+            //console.log(now1.getMinutes() * 6+now1.getSeconds()*6/60);
+        };
+        runclockm();
+
+        const runclockh = () => {
+            const now2 = new Date();
+            m_hand.style.transform = `rotate(${now2.getHours() * 30 +
+                (now2.getMinutes() * 30) / 60 +
+                now2.getSeconds() * 30 / (60 * 60)
+                }deg)`;
+
+            setTimeout(runclockh, 1000);
+        };
+        runclockh();
+            // sec_hand.style.transform = `rotate(${now.getHours() * (0.00833)}deg)`;
+            // m_hand.style.transform = `rotate(${now.getMinutes() * (6 / 60)}deg)`;
+            // sec_hand.style.transform = `rotate(${now.getSeconds() * 6}deg)`;
+            // runClock();
+    </script>
+</body>
+
+</html>

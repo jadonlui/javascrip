@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <pre class="rect"></pre>
+
+    <script>
+        const rect = document.querySelector(".rect");
+        const ar = [];
+        for (let i = 1; i <= 42; i++) {
+            ar.push(i);
+        }
+        // console.log(ar);
+
+
+        ar.sort(function () {
+            let aa='';
+            aa=aa+(Math.random()-0.5);
+            // console.log(aa);
+            return aa;
+         
+            // return Math.random() - 0.5;
+        });
+        rect.innerHTML = ar;
+    </script>
+</body>
+
+</html>

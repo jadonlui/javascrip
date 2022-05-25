@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+
+        <!-- min max自行輸入限制不住 -->
+        <input type="number" id="inp" min="0" max="100" />
+
+        <button onclick="func()">click</button>
+        <p id="eee"></p>
+        <script>
+            const qqq = document.querySelector("#inp");
+
+            function func() {
+                const score = +qqq.value;
+               
+                let g;
+
+                if (score >= 90) {
+                    g = "qqqqq";
+                } else if (score >= 80) {
+                    g = "B";
+                } else if (score >= 70) {
+                    g = "C";
+                } else if (score >= 60) {
+                    g = "D";
+                } else {
+                    g = "F";
+                }
+               eee.innerHTML = g;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <pre class="rect"></pre>
+        <script>
+            const rect = document.querySelector(".rect");
+            const p1 = {
+                age: 25,
+                name: {
+                    first: "John",
+                    last: "Wick",
+                },
+                id: "007",
+            };
+
+            // 深層複製
+            const p2 = JSON.parse(JSON.stringify(p1));
+
+            p1.name.first = "Alex";
+
+            console.log(p1);
+            console.log(p2);
+            rect.innerHTML =
+                JSON.stringify(p1, null, 4) +
+                "\n" +
+                JSON.stringify(p2, null, 4);
+        </script>
+    </body>
+</html>

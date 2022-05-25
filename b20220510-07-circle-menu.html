@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: rgb(248, 232, 232);
+            border: 1px solid black;
+        }
+
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgb(245, 52, 52);
+            color: white;
+            font-weight: 800;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid black;
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect"></div>
+    <script>
+        const rect = document.querySelector(".rect");
+        const balls = [];
+        let b;
+        const ballNum = 12;
+        const angUnit = (Math.PI * 2) / ballNum;
+
+        for (let i = 0; i < ballNum; i++) {
+            b = document.createElement("div");
+            b.className = "ball";
+            b.innerHTML = i + 1;
+            // 計算資料
+            const data = {
+                el: b,
+                beginX: 400 - 25,
+                beginY: 300 - 25,
+                endX: 400 - 25 + Math.round(Math.cos(i * angUnit) * 260),
+                endY: 300 - 25 + Math.round(Math.sin(i * angUnit) * 260),
+            };
+            b.style.left = data.beginX + "px";
+            b.style.top = data.beginY + "px";
+
+            rect.appendChild(b);
+            balls.push(data);
+        }
+
+        const openMenu = () => {
+            balls.forEach((d, i) => {
+                setTimeout(() => {
+                    d.el.style.left = d.endX + "px";
+                    d.el.style.top = d.endY + "px";
+                }, 100 * i);
+            });
+        };
+        const closeMenu = () => {
+            balls.forEach((d, i) => {
+                setTimeout(() => {
+                    d.el.style.left = d.beginX + "px";
+                    d.el.style.top = d.beginY + "px";
+                }, 100 * (balls.length - 1 - i));
+            });
+        };
+    </script>
+</body>
+
+</html>

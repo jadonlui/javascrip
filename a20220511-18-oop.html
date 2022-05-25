@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            class Person {
+                ppp = 123; // 會變成屬性
+
+                // 建構函式, 建構子
+                constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                }
+                toString() {
+                    return `123name: ${this.name}`;
+                }
+            }
+            class Student extends Person {}
+
+            class Teacher extends Person {
+                constructor(name, age, id) {
+                    super(name, age);
+                    this.id = id;
+                }
+                toString() {
+                    const { name, age, id } = this;
+                    // return JSON.stringify({ name, age, id });
+                    return super.toString() + ` id:${this.id}`;
+                }
+            }
+
+            const p1 = new Person("David", 25);
+            const p2 = new Student("Alex", 18);
+            const p3 = new Teacher("Flora", 38, "A008");
+            console.log("" + p2);
+            console.log(p2.ppp);
+            console.log("" + p3);
+        </script>
+    </body>
+</html>

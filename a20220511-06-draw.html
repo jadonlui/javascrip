@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: rgb(248, 232, 232);
+            border: 1px solid black;
+        }
+
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(245, 216, 52);
+            border: 1px solid black;
+            pointer-events: none;
+        }
+
+        .ball2 {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(255, 50, 5);
+            border: 1px solid black;
+            pointer-events: none;
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect"></div>
+    <div id="info"></div>
+    <script>
+        const rect = document.querySelector(".rect");
+
+        const info = document.querySelector("#info");
+
+        const mDown = (event) => {
+            rect.addEventListener("mousemove", mMove);
+        };
+        const mUp = (event) => {
+            rect.removeEventListener("mousemove", mMove);
+        };
+        const mMove = (event) => {
+            const b = document.createElement("div");
+            b.className = "ball2";
+
+            // b.style.right = -event.offsetX + 10 + 800 + "px";
+            // b.style.bottom = -event.offsetY + 10 + 600 + "px";
+            b.style.left = event.offsetX - 10 + "px";
+            b.style.top = event.offsetY - 10 + "px";
+            console.log(event.offsetX);
+            rect.appendChild(b);
+            setTimeout(() => {
+                b.remove();
+            }, 1500);
+        };
+        rect.addEventListener("mousedown", mDown);
+        window.addEventListener("mouseup", mUp);
+
+    </script>
+</body>
+
+</html>

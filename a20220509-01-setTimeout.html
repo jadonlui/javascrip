@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="rect"></div>
+        <script>
+            const rect = document.querySelector(".rect");
+
+            // 只觸發一次
+            setTimeout(function () {
+                rect.innerHTML = new Date().toString();
+            }, 2000);
+
+            // 重複觸發
+            setInterval(function () {
+                console.log(new Date());
+            }, 1000);
+        </script>
+    </body>
+</html>

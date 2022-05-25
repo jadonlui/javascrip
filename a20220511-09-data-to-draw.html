@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .rect {
+                position: relative;
+                width: 800px;
+                height: 600px;
+                background-color: rgb(248, 232, 232);
+                border: 1px solid black;
+            }
+            .ball {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: rgb(245, 216, 52);
+                border: 1px solid black;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="rect"></div>
+        <button onclick="showBalls()">show</button>
+        <br />
+
+        <script src="data/data01.js"></script>
+        <script>
+            const rect = document.querySelector(".rect");
+            let bIndex = 0;
+
+            const drawBall = ({ size, x, y, bgc }) => {
+                const b = document.createElement("div");
+                b.className = "ball";
+
+                b.style.backgroundColor = bgc;
+                b.style.left = x + "px";
+                b.style.top = y + "px";
+                b.style.height = b.style.width = size + "px";
+
+                rect.appendChild(b);
+            };
+            /*
+            const showBalls = () => {
+                data.forEach((o) => drawBall(o));
+            };
+            */
+
+            const doStep = () => {
+                if (bIndex >= data.length) return;
+                const b = data[bIndex];
+                drawBall(b);
+                bIndex++;
+                setTimeout(doStep, 10);
+                console.log('qq');
+            };
+
+            const showBalls = () => {
+                doStep();
+            };
+        </script>
+    </body>
+</html>
